@@ -1,7 +1,7 @@
 package sample;
 
 public class ArbTaker {
-    personalia;
+    final String personalia;
     final int arbtakernr;
     final int ansettelsesaar;
     final double maanedslonn;
@@ -22,6 +22,8 @@ public class ArbTaker {
     public double getSkatteprosent() {
         return skatteprosent;
     }
+
+    public String getPersonalia;
 
     public void setSkatteprosent(double skatt) {
         skatteprosent = skatt;
@@ -45,7 +47,8 @@ public class ArbTaker {
     }
 
     public String navnPaaFormen() {
-        return
+        return getEtternavn()+getFornavnn();
+        getEtternavn()
     }
 
 }

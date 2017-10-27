@@ -1,23 +1,22 @@
 package sample;
 
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
+public class Test {
+    public static void main(String[] args){
+        Person Christian = new Person("Christian", "Axell", 1998);
+        ArbTaker ChrisAxell = new ArbTaker(Christian, 898989, 2012, 82520, 20);
 
-public class Test extends Application {
+        System.out.println(ChrisAxell.getPersonalia());
+        System.out.println(ChrisAxell.getArbtakernr());
+        System.out.println(ChrisAxell.getAnsettelsesaar());
+        System.out.println(ChrisAxell.getMaanedslonn());
+        System.out.println(ChrisAxell.getSkatteprosent());
 
-    @Override
-    public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
-        primaryStage.show();
-    }
-
-
-    public static void main(String[] args) {
-        launch(args);
+        System.out.println(ChrisAxell.skatteTrekk());
+        System.out.println(ChrisAxell.bruttoLonn());
+        System.out.println(ChrisAxell.skatteTrekk());
+        System.out.println(ChrisAxell.navnPaaFormen());
+        System.out.println(ChrisAxell.alder());
+        System.out.println(ChrisAxell.antallAarBedr());
+        System.out.println(ChrisAxell.antallAarMerellerMindre(2));
     }
 }

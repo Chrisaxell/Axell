@@ -2,7 +2,7 @@ package sample;
 
 public class Oppgaveoversikt {
     private int antStud = 0;
-    private Student[] studenter = new Student[antStud];
+    private Student[] studenter = new Student[256];
 
     public Oppgaveoversikt() {}
 
@@ -17,8 +17,10 @@ public class Oppgaveoversikt {
 
     public int antOppLost(String navn) { return studenter[finnNavn(navn)].getAntOppg(); }
 
-    public void regNyStud(String navn, int AntOppg) {
-        studenter[1] = new Student(navn, AntOppg);
+
+    public void regNyStud(String navn, int antOppg) {
+        Student arne = new Student(navn, antOppg);
+        studenter[antStud]=arne;
         antStud++;
     }
 

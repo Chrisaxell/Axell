@@ -46,7 +46,7 @@ public class Ovning13opp2del extends GLCanvas implements GLEventListener {
         gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
         gl.glLoadIdentity();
 
-        gl.glTranslatef(-11.0f, 5.0f, -20.0f);
+        gl.glTranslatef(-11.0f, 5.0f, -40.0f);
 
         gl.glBegin(GL2.GL_LINE_LOOP);
             gl.glVertex3d(1.0, 1.0, 1.0);

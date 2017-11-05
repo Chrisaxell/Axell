@@ -15,12 +15,11 @@ public class Oppgaveoversikt {
         } return i;
     }
 
-    public int antOppLost(String navn) { return studenter[finnNavn(navn)].getAntOppg(); }
+    public int antOppLost(String student) { return studenter[finnNavn(student)].getAntOppg(); }
 
 
     public void regNyStud(String navn, int antOppg) {
-        Student arne = new Student(navn, antOppg);
-        studenter[antStud]=arne;
+        studenter[antStud]=new Student(navn, antOppg);
         antStud++;
     }
 
@@ -36,5 +35,5 @@ public class Oppgaveoversikt {
         return hei;
     }
 
-    public String toStringElev(String student) { return studenter[finnNavn(student)].toString() + " hei"; }
+    public String toStringElev(String student) { return studenter[finnNavn(student)].toString(); }
 }

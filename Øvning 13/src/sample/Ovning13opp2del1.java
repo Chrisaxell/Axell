@@ -7,15 +7,15 @@ import com.jogamp.opengl.GLAutoDrawable;
 import com.jogamp.opengl.GLEventListener;
 import com.jogamp.opengl.awt.GLCanvas;
 
-public class Ovning13opp2del extends GLCanvas implements GLEventListener {
+public class Ovning13opp2del1 extends GLCanvas implements GLEventListener {
 
     private static String TITLE = "Ovning 13!!! del 1";
-    private static final int CANVAS_WIDTH = 1080;
-    private static final int CANVAS_HEIGHT = 540;
+    private static final int CANVAS_WIDTH = 240;
+    private static final int CANVAS_HEIGHT = 240;
 
     private GLU glu;
 
-    public Ovning13opp2del() {
+    public Ovning13opp2del1() {
         this.addGLEventListener(this);
     }
 
@@ -46,7 +46,8 @@ public class Ovning13opp2del extends GLCanvas implements GLEventListener {
         gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
         gl.glLoadIdentity();
 
-        gl.glTranslatef(-11.0f, 5.0f, -40.0f);
+        gl.glTranslatef(0.0f, 0.0f, -20.0f);
+        gl.glScaled(4.0,4.0,4.0);
 
         gl.glBegin(GL2.GL_LINE_LOOP);
             gl.glVertex3d(1.0, 1.0, 1.0);
@@ -73,7 +74,7 @@ public class Ovning13opp2del extends GLCanvas implements GLEventListener {
 
 
     public static void main(String[] args) {
-        GLCanvas canvas = new Ovning13opp2del();
+        GLCanvas canvas = new Ovning13opp2del1();
         canvas.setPreferredSize(new Dimension(CANVAS_WIDTH, CANVAS_HEIGHT));
 
         final JFrame frame = new JFrame();

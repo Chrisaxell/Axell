@@ -6,20 +6,41 @@ import com.jogamp.opengl.glu.GLU;
 import com.jogamp.opengl.GLAutoDrawable;
 import com.jogamp.opengl.GLEventListener;
 import com.jogamp.opengl.awt.GLCanvas;
-import com.jogamp.opengl.util.gl2.GLUT;
 
-public class Ovning3opp2del2 extends GLCanvas implements GLEventListener {
+public class Ovning14 extends GLCanvas implements GLEventListener {
 
-    private static String TITLE = "Ovning 13!!! del 2";
-    private static final int CANVAS_WIDTH = 1080;
-    private static final int CANVAS_HEIGHT = 540;
+    private static String TITLE = "Ovning 13!!! del 1";
+    private static final int CANVAS_WIDTH = 800;
+    private static final int CANVAS_HEIGHT = 800;
+
+    static final float cornerPositions[][] = {{1,1,1},{-1,1,1},{-1,-1,1},{1,-1,1},{1,1,-1},{-1,1,-1},{-1,-1,-1},{1,-1,-1}};
+    static final float color[][] = {{1,0,0},{0,1,0},{0,0,1},{0,0,0},{1,1,0},{1,0,1},{0,1,1},{1,1,1}};
 
     private GLU glu;
-    private GLUT glut = new GLUT();
 
-    public Ovning3opp2del2() {
+    public Ovning14() {
         this.addGLEventListener(this);
     }
+
+    public void drawSide(GL2 gl, int a, int b, int c, int d){
+        gl.glColor3fv(color[a],0);
+        gl.glBegin(GL2.GL_POLYGON);
+            gl.glVertex3fv(cornerPositions[a],0);
+            gl.glVertex3fv(cornerPositions[b],0);
+            gl.glVertex3fv(cornerPositions[c],0);
+            gl.glVertex3fv(cornerPositions[d],0);
+        gl.glEnd();
+    }
+
+    public void drawCube(GL2 gl){
+           drawSide(gl, 0,1,2,3);
+           drawSide(gl, 3,0,7,4);
+           drawSide(gl, 2,3,7,6);
+           drawSide(gl, 1,0,4,5);
+           drawSide(gl, 5,1,2,6);
+           drawSide(gl, 4,5,6,7);
+    }
+
 
     public void init(GLAutoDrawable drawable) {
         GL2 gl = drawable.getGL().getGL2();
@@ -48,18 +69,30 @@ public class Ovning3opp2del2 extends GLCanvas implements GLEventListener {
         gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
         gl.glLoadIdentity();
 
-        gl.glTranslatef(-11.0f, 5.0f, -20.0f);
-        glut.glutWireCube(4);
-        gl.glTranslatef(-11.0f, 5.0f, -20.0f);
-        glut.glutWireCube(4);
+        gl.glTranslatef(0.0f, 0.0f,-10.0f);
+
+        gl.glViewport(0,0,CANVAS_WIDTH/2,CANVAS_HEIGHT/2);
+        drawCube(gl);
+
+        gl.glViewport(CANVAS_WIDTH/2,0,CANVAS_WIDTH/2,CANVAS_HEIGHT/2);
+        gl.glRotatef(70,1,0,1);
+        drawCube(gl);
+
+        gl.glViewport(CANVAS_WIDTH/2,CANVAS_HEIGHT/2,CANVAS_WIDTH/2,CANVAS_HEIGHT/2);
+        gl.glRotatef(70,0,1,1);
+        drawCube(gl);
+
+        gl.glViewport(0,CANVAS_HEIGHT/2,CANVAS_WIDTH/2,CANVAS_HEIGHT/2);
+        gl.glRotatef(45,1,1,0);
+        drawCube(gl);
     }
-// HEI MOGOF
+
     public void dispose(GLAutoDrawable drawable) { }
 
 
 
     public static void main(String[] args) {
-        GLCanvas canvas = new Ovning3opp2del2();
+        GLCanvas canvas = new Ovning14();
         canvas.setPreferredSize(new Dimension(CANVAS_WIDTH, CANVAS_HEIGHT));
 
         final JFrame frame = new JFrame();
